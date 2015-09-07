@@ -19,6 +19,7 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	drivebase.iniJoystick(oi.gamepad.getLeftY(), oi.gamepad.getRightY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -28,10 +29,12 @@ public class Drive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	drivebase.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
