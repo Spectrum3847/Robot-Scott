@@ -28,6 +28,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		Init.init();
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
     }
@@ -53,7 +54,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        Teleop.init();
     }
 
     /**
@@ -69,6 +70,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        Teleop.periodic();
     }
     
     /**

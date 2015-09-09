@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Drive extends CommandBase {
-
+	
     public Drive() {
         requires(drivebase);
     }
@@ -19,7 +19,7 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivebase.iniJoystick(oi.gamepad.getLeftY(), oi.gamepad.getRightY());
+    	drivebase.initJoystick(-oi.gamepad.getLeftY()/2, oi.gamepad.getRightY()/2);
     }
 
     // Make this return true when this Command no longer needs to run execute()

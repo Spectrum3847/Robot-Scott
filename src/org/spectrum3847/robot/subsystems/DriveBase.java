@@ -1,9 +1,10 @@
 package org.spectrum3847.robot.subsystems;
 
 import org.spectrum3847.robot.RobotMap;
+import org.spectrum3847.robot.commands.drive.Drive;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -21,9 +22,11 @@ public class DriveBase extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new Drive());
+    	
     }
     
-    public void iniJoystick(double left, double right){
+    public void initJoystick(double left, double right){
     	robotDrive.tankDrive(left, right);
     }
     

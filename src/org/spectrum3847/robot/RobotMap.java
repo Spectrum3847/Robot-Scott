@@ -16,8 +16,8 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	/**DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
-    public static final int LEFT_DRIVE_MOTOR = 9;
-    public static final int RIGHT_DRIVE_MOTOR = 0;
+    public static final int LEFT_DRIVE_MOTOR = 0;
+    public static final int RIGHT_DRIVE_MOTOR = 9;
     
     /**NON-DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
 
