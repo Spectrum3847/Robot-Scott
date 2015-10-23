@@ -1,5 +1,8 @@
 package org.spectrum3847.scott;
 
+import org.spectrum3847.robot.commands.drive.AutonomousDrive;
+import org.spectrum3847.robot.commands.drive.DriveUntilMetal;
+
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /*
@@ -8,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Autonomous {
 
     public static void init() {
-        //(new AutonSingleBallLow()).start();
+    	(new DriveUntilMetal()).start();
     }
 
     //Periodic method called roughly once every 20ms

@@ -13,6 +13,7 @@ public class Init {
     public static void init() {
     	CommandBase.init();
         System.out.println("init");
+        Dashboard.intializeDashboard();
     }
 
     public static void periodic() {

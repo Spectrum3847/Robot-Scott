@@ -12,6 +12,8 @@ public abstract class CommandBase extends Command {
 
 	public static OI oi;
     public static DriveBase drivebase = new DriveBase();
+    public static Relay myRelay = new Relay();
+    
 
     // Create a single static instance of all of your subsystems
     public static void init() {
