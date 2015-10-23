@@ -1,32 +1,30 @@
-package org.spectrum3847.robot.commands.drive;
-
-import org.spectrum3847.robot.commands.CommandBase;
+package org.spectrum3847.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.spectrum3847.robot.commands.CommandBase;
+import org.spectrum3847.robot.subsystems.Relay;
 
 /**
  *
  */
-public class Drive extends CommandBase {
+public class turnOnRelay extends Command {
+
+	Relay relay = CommandBase.myRelay;
 	
-    public Drive() {
-        requires(drivebase);
+    public turnOnRelay() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(relay);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	relay.turnOn();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftDrive = -oi.gamepad.getLeftY()/2;
-    	double rightDrive = oi.gamepad.getRightY()/2;
-    	
-    	drivebase.drive(rightDrive, leftDrive);
-    	
-    	SmartDashboard.putNumber("Left Drive Value: ", leftDrive);
-    	SmartDashboard.putNumber("Right Drive Value: ", rightDrive);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +34,7 @@ public class Drive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drivebase.stop();
+    	relay.turnOff();
     }
 
     // Called when another command which requires one or more of the same

@@ -1,4 +1,4 @@
-package org.spectrum3847.robot.drive;
+package org.spectrum3847.robot.drivers;
 
 import edu.wpi.first.wpilibj.Joystick;
 

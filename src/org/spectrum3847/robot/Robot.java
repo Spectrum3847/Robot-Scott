@@ -1,10 +1,12 @@
 
 package org.spectrum3847.robot;
 
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.spectrum3847.robot.commands.ExampleCommand;
 import org.spectrum3847.robot.subsystems.ExampleSubsystem;
 
@@ -20,7 +22,8 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
-    Command autonomousCommand;
+	public static DigitalOutput rawOutput3 = new DigitalOutput(3);
+
 
     /**
      * This function is run when the robot is first started up and should be
@@ -30,7 +33,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		Init.init();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
     }
 	
 	public void disabledPeriodic() {
@@ -39,7 +41,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        Autonomous.init();
     }
 
     /**
@@ -47,6 +49,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        Autonomous.periodic();
     }
 
     public void teleopInit() {

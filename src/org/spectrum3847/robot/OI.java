@@ -2,7 +2,9 @@ package org.spectrum3847.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.spectrum3847.robot.drive.*;
+
+import org.spectrum3847.robot.commands.turnOnRelay;
+import org.spectrum3847.robot.drivers.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,6 +42,9 @@ public class OI {
     
     //Use this constructor to setup up button schedulers for commands
     public OI() {
+
+       Button relaybutton = new JoystickButton(gamepad_aux, 1);
+       relaybutton.whileHeld(new turnOnRelay());
     	
     }
 }
