@@ -1,18 +1,16 @@
+package org.spectrum3847.scott.commands.drive;
 
-package org.spectrum3847.robot.commands;
+import org.spectrum3847.scott.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.Command;
-
-import org.spectrum3847.robot.Robot;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
-
-    public ExampleCommand() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+public class Drive extends CommandBase {
+	
+    public Drive() {
+        requires(drivebase);
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +19,7 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	drivebase.initJoystick(-oi.gamepad.getLeftY()/2, oi.gamepad.getRightY()/2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,10 +29,12 @@ public class ExampleCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	drivebase.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

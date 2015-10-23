@@ -1,18 +1,20 @@
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-/**
- *
+/*
  * @author matthew
  */
-public class Teleop {
+public class Autonomous {
+
     public static void init() {
-        Scheduler.getInstance().removeAll();
+        //(new AutonSingleBallLow()).start();
     }
 
+    //Periodic method called roughly once every 20ms
     public static void periodic() {
         Scheduler.getInstance().run();
+        Dashboard.updateDashboard();
     }
 
     public static void cancel() {

@@ -1,7 +1,7 @@
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
-import org.spectrum3847.robot.commands.CommandBase;
-import org.spectrum3847.robot.commands.drive.Drive;
+import org.spectrum3847.scott.commands.CommandBase;
+import org.spectrum3847.scott.commands.drive.Drive;
 /**
  *
  * @author matthew

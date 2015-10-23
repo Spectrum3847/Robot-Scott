@@ -1,12 +1,13 @@
 
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.spectrum3847.robot.commands.ExampleCommand;
-import org.spectrum3847.robot.subsystems.ExampleSubsystem;
+
+import org.spectrum3847.scott.commands.ExampleCommand;
+import org.spectrum3847.scott.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,49 +22,74 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
+    
+    //Used to keep track of the robot current state easily
+    public enum RobotState {
+        DISABLED, AUTONOMOUS, TELEOP
+    }
+
+    public static RobotState s_robot_state = RobotState.DISABLED;
+
+    public static RobotState getState() {
+        return s_robot_state;
+    }
+
+    public static void setState(RobotState state) {
+        s_robot_state = state;
+    }
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	System.out.println("Start robotInit()");
 		oi = new OI();
 		Init.init();
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
     }
-	
-	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
-	}
+    
+    /**
+     * This function is called when the disabled button is hit.
+     * You can use it to reset subsystems before shutting down.
+     */
+    public void disabledInit(){
+        setState(RobotState.DISABLED);
+    	System.out.println("Start disabledInit()");
+        Disabled.init();
+        System.out.println("End disableInit()");
+    }
+    /**
+     * This function is called while in disabled mode.
+     */    
+    public void disabledPeriodic(){
+    	Disabled.periodic();
+    }
+
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+    	setState(RobotState.AUTONOMOUS);
+    	System.out.println("Start autonomousInit()");
+        Autonomous.init();
+    	System.out.println("End autonomousInit()");
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        Autonomous.periodic();
     }
 
     public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
+    	setState(RobotState.TELEOP);
+    	System.out.println("Start teleopInit()");
         Teleop.init();
+        System.out.println("End teleopInit()");
     }
 
-    /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
-    public void disabledInit(){
 
-    }
 
     /**
      * This function is called periodically during operator control

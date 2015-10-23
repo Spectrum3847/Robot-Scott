@@ -1,7 +1,8 @@
-package org.spectrum3847.robot.commands;
+package org.spectrum3847.scott.commands;
 
-import org.spectrum3847.robot.OI;
-import org.spectrum3847.robot.subsystems.*;
+import org.spectrum3847.scott.OI;
+import org.spectrum3847.scott.subsystems.*;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

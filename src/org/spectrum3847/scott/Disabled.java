@@ -1,5 +1,6 @@
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -16,6 +17,7 @@ public class Disabled {
         //Init.sendCam.start();
     }
 
+    //Periodic method called roughly once every 20ms
     public static void periodic() {
         //Flash a light on the dashboard while disabled, know that the dashboard is refreshing.
         if (t > 20) {
@@ -26,11 +28,6 @@ public class Disabled {
         t++;
         Scheduler.getInstance().run();
         Dashboard.updateDashboard();
-
-
-
-    }
-
-    public static void continuous() {
+        Timer.delay(0.001);
     }
 }

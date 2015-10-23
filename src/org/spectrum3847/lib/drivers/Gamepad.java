@@ -1,6 +1,7 @@
-package org.spectrum3847.robot.drive;
+package org.spectrum3847.lib.drivers;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.RumbleType;
 
 /**
  *
@@ -81,6 +82,16 @@ public class Gamepad extends Joystick {
 
     public Joystick getGamepad() {
         return this;
+    }
+    
+    /**
+     * Set the rumble output for the joystick. The DS currently supports 2 rumble values,
+     * left rumble and right rumble
+     * @param type Which rumble value to set
+     * @param value The normalized value (0 to 1) to set the rumble to
+     */
+    public void setRumble(RumbleType type, float value) {
+    	super.setRumble(type, value);
     }
 
 }

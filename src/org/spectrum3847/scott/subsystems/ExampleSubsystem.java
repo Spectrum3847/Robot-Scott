@@ -1,5 +1,5 @@
 
-package org.spectrum3847.robot.subsystems;
+package org.spectrum3847.scott.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 

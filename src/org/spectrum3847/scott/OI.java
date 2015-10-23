@@ -1,8 +1,9 @@
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.spectrum3847.robot.drive.*;
+
+import org.spectrum3847.lib.drivers.Gamepad;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -35,8 +36,8 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-	public static final Gamepad gamepad = new Gamepad(RobotMap.usbPort_zero);
-    public static final Gamepad gamepad_aux = new Gamepad(RobotMap.usbPort_one);
+	public static final Gamepad gamepad = new Gamepad(HW.usbPort_zero);
+    public static final Gamepad gamepad_aux = new Gamepad(HW.usbPort_one);
     
     //Use this constructor to setup up button schedulers for commands
     public OI() {

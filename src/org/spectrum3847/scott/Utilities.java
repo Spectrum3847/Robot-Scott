@@ -1,4 +1,4 @@
-package org.spectrum3847.robot;
+package org.spectrum3847.scott;
 
 /*
  * @author JAG, matthew
